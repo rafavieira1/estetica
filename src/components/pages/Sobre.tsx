@@ -37,10 +37,10 @@ export default function Sobre() {
         >
           {/* Left: Titles */}
           <motion.div variants={fadeUp} className="flex-1 w-full lg:text-right relative mt-0 flex flex-col justify-center gap-2">
-            <h2 className="text-[14vw] sm:text-[11vw] lg:text-5xl xl:text-6xl 2xl:text-[6.5rem] font-black leading-[0.85] tracking-tighter text-[#111] uppercase flex flex-col">
-              <span>Arte</span>
-              <span>em cada</span>
-              <span>traço</span>
+            <h2 className="text-[14vw] sm:text-[11vw] lg:text-5xl xl:text-6xl 2xl:text-[6.5rem] font-normal leading-[1.1] tracking-tight text-[#111] flex flex-col">
+              <span>ARTE</span>
+              <span>EM CADA</span>
+              <span>TRAÇO</span>
             </h2>
           </motion.div>
 

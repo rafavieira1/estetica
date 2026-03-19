@@ -34,9 +34,9 @@ export default function SocialCTA() {
                </span>
             </div>
 
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.1] mb-4">
-              Pronta para realçar sua <br className="hidden sm:block" />
-              <span className="italic font-light">beleza única?</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-white leading-[1.1] mb-6">
+              Pronta para realçar sua<br className="hidden sm:block" />
+              beleza única?
             </h2>
             
             <p className="text-base sm:text-xl text-white/80 mb-8 max-w-3xl font-light">

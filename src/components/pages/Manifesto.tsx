@@ -33,7 +33,7 @@ export default function Manifesto() {
           className="flex flex-col items-center"
         >
           {/* Main heading */}
-          <h2 className="text-[12vw] sm:text-7xl md:text-8xl lg:text-[7rem] font-black leading-[0.9] tracking-tighter text-[#111] text-center uppercase mb-10 flex flex-col items-center gap-1">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-normal tracking-tight text-[#111] text-center leading-[1.1] mb-10 flex flex-col items-center gap-2">
             <motion.span variants={itemVariants} className="block">Sua beleza em</motion.span>
             <motion.span variants={itemVariants} className="block">cada detalhe</motion.span>
           </h2>

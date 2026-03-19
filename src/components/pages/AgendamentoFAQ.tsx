@@ -71,9 +71,8 @@ export default function AgendamentoFAQ() {
                transition={{ duration: 0.6 }}
                className="mb-12"
              >
-                <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-medium tracking-tight text-[#111] leading-[1.1]">
-                  Reserve <span className="italic font-light">seu horário</span>
-                  <br /> com antecedência
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-[#111] leading-[1.1]">
+                  Reserve seu horário<br /> com antecedência
                 </h2>
              </motion.div>
 

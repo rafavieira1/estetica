@@ -46,8 +46,8 @@ export default function Depoimentos() {
                 [ DEPOIMENTOS ]
               </span>
            </div>
-           <h2 className="text-4xl md:text-5xl lg:text-7xl uppercase font-black tracking-tighter text-[#111] max-w-4xl mx-auto leading-[0.9]">
-             O QUE DIZEM SOBRE NÓS
+           <h2 className="text-4xl md:text-5xl lg:text-7xl font-normal tracking-tight text-[#111] max-w-4xl mx-auto leading-[1.1]">
+             O que dizem sobre nós
            </h2>
         </motion.div>
 
