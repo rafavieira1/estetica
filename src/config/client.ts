@@ -24,8 +24,41 @@ export const CLIENT = {
     { icone: "star", nome: "Maquiagem", descricao: "Make para eventos, festas e dia a dia" },
   ],
   depoimentos: [
-    { nome: "Ana Clara", nota: 5, texto: "Melhor salão da cidade! Atendimento incrível e resultado perfeito." },
-    { nome: "Juliana M.", nota: 5, texto: "Profissionalismo e cuidado em cada detalhe. Super recomendo!" },
-    { nome: "Fernanda S.", nota: 5, texto: "Me sinto outra pessoa depois de cada visita. Adorei!" },
+    { 
+      nome: "Ana Clara", 
+      papel: "Cliente Fiel",
+      avatar: "https://i.pravatar.cc/150?img=47",
+      nota: 5, 
+      texto: "Encontrar um lugar onde eu pudesse confiar de verdade não foi fácil, mas aqui eu achei mais que isso. Me sinto em casa." 
+    },
+    { 
+      nome: "Juliana M.", 
+      papel: "Noiva",
+      avatar: "https://i.pravatar.cc/150?img=43",
+      nota: 5, 
+      texto: "Profissionalismo e cuidado em cada detalhe. Super recomendo!" 
+    },
+    { 
+      nome: "Camila R.", 
+      papel: "Empresária",
+      avatar: "https://i.pravatar.cc/150?img=32",
+      nota: 5, 
+      texto: "É meu refúgio semanal. Eles sabem exatamente o que fazer pra me desconectar da correria do dia a dia." 
+    },
+    { 
+      nome: "Beatriz L.", 
+      papel: "Microempreendedora",
+      avatar: "https://i.pravatar.cc/150?img=5",
+      nota: 5, 
+      texto: "As terapeutas são atenciosas e os resultados que tive com a pele foram maravilhosos. O espaço é lindíssimo!" 
+    },
+    { 
+      nome: "Fernanda S.", 
+      papel: "Autônoma",
+      avatar: "https://i.pravatar.cc/150?img=44",
+      nota: 5, 
+      texto: "Me sinto outra pessoa depois de cada visita. É com certeza o melhor investimento em mim mesma." 
+    },
   ],
 };
+// Força a invalidação do cache do Vite para garantir que todos os 5 depoimentos sejam lidos.
