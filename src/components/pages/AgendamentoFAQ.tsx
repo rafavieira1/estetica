@@ -44,7 +44,7 @@ export default function AgendamentoFAQ() {
   };
 
   return (
-    <section id="agendamento" className="py-24 lg:py-32 bg-white selection:bg-[#111] selection:text-white">
+    <section id="agendamento" className="py-16 lg:py-32 bg-white selection:bg-[#111] selection:text-white">
       <div className="container mx-auto px-6 max-w-[1400px]">
         
         {/* TÍTULO PADRONIZADO CENTRALIZADO NO TOPO */}
@@ -59,7 +59,7 @@ export default function AgendamentoFAQ() {
         </motion.div>
 
         {/* Mudei "items-start" para "items-stretch" para a esquerda ocupar a mesma altura do Card da direita */}
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-stretch">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-24 items-stretch">
           
           {/* LADO ESQUERDO: Título e FAQ */}
           <div className="w-full lg:w-1/2 flex flex-col pt-4">
@@ -125,7 +125,7 @@ export default function AgendamentoFAQ() {
           >
             {/* GRADIENTE (Visual VIP Cartão) */}
             <div className="w-full relative p-[2px] rounded-[2rem] lg:rounded-[3rem] bg-gradient-to-br flex from-[#E2D4C3] via-[#F8F4EE] to-[#D4C3AC] shadow-xl shadow-[#111]/5">
-               <div className="bg-white rounded-[calc(2rem-2px)] lg:rounded-[calc(3rem-2px)] p-8 sm:p-10 lg:p-12 w-full flex flex-col justify-center relative overflow-hidden">
+               <div className="bg-white rounded-[calc(2rem-2px)] lg:rounded-[calc(3rem-2px)] p-6 sm:p-8 lg:p-12 w-full flex flex-col justify-center relative overflow-hidden">
                   
                   {/* Título do Card */}
                   <div className="text-center mb-8">

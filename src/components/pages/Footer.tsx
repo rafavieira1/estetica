@@ -21,7 +21,7 @@ export default function Footer() {
   const whatsappUrl = `https://wa.me/${CLIENT.whatsapp}`;
 
   return (
-    <footer className="relative overflow-hidden bg-[#fafafa] pt-16 lg:pt-24 pb-32 lg:pb-48 flex flex-col justify-end">
+    <footer className="relative overflow-hidden bg-[#fafafa] pt-12 lg:pt-24 pb-20 lg:pb-48 flex flex-col justify-end">
 
       {/* Marca D'Água STUDIO no fundo - renderizada antes para ficar no z-0 */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex justify-center pointer-events-none select-none z-0 w-full overflow-hidden">
@@ -33,7 +33,7 @@ export default function Footer() {
       {/* Container principal para o card */}
       <div className="container mx-auto px-6 max-w-[1400px] relative z-10">
         {/* Card Branco */}
-        <div className="bg-white rounded-[2rem] shadow-[0_8px_40px_rgba(0,0,0,0.03)] px-8 py-10 md:px-12 md:py-12 lg:px-16 lg:py-12 border border-gray-100/60">
+        <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] shadow-[0_8px_40px_rgba(0,0,0,0.03)] px-5 py-8 sm:px-8 sm:py-10 md:px-12 md:py-12 lg:px-16 lg:py-12 border border-gray-100/60">
 
           {/* Top Section do Card */}
           <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-24 mb-12">
@@ -83,8 +83,8 @@ export default function Footer() {
             {/* Right Area - Grid de Links */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16 lg:gap-20">
 
-              {/* Coluna 1 */}
-              <div>
+              {/* Coluna 1 - Empresa (Oculta no mobile) */}
+              <div className="hidden md:block">
                 <h4 className="font-bold text-[#111] mb-4 text-sm">Empresa</h4>
                 <nav className="flex flex-col gap-3">
                   {companyLinks.map((link) => (

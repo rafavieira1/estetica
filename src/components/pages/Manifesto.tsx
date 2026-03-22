@@ -37,12 +37,12 @@ export default function Manifesto() {
   return (
     <section
       id="manifesto"
-      className="bg-white py-32 md:py-48 px-6 min-h-[60vh] flex flex-col justify-center items-center overflow-hidden border-t border-gray-100"
+      className="bg-white py-20 md:py-32 lg:py-48 px-4 sm:px-6 min-h-[60vh] flex flex-col justify-center items-center overflow-hidden border-t border-gray-100"
     >
       <div ref={textContainer} className="max-w-[1400px] mx-auto flex flex-col items-center justify-center w-full">
         {/* Title */}
         <h2
-          className="text-6xl sm:text-7xl md:text-8xl lg:text-[8rem] xl:text-[9.5rem] font-serif font-normal tracking-tighter text-[#111] leading-[0.9] text-center mb-8 md:mb-10 flex flex-wrap gap-x-4 md:gap-x-6 justify-center"
+          className="text-4xl sm:text-6xl md:text-8xl lg:text-[8rem] xl:text-[9.5rem] font-serif font-normal tracking-tighter text-[#111] leading-[0.9] text-center mb-6 md:mb-10 flex flex-wrap gap-x-3 sm:gap-x-4 md:gap-x-6 justify-center"
         >
           {titleWords.map((word, i) => {
             const start = i / totalWords;
@@ -56,7 +56,7 @@ export default function Manifesto() {
         </h2>
 
         {/* Cinematic Scroll Subtitle */}
-        <p className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-[3.25rem] font-medium tracking-tight text-[#111] leading-[1.25] text-center max-w-5xl mx-auto w-full">
+        <p className="text-xl sm:text-2xl md:text-4xl lg:text-[2.75rem] xl:text-[3.25rem] font-medium tracking-tight text-[#111] leading-[1.25] text-center max-w-5xl mx-auto w-full">
           {subtitleWords.map((word, i) => {
             const start = (titleWords.length + i) / totalWords;
             const end = start + (1 / totalWords);
@@ -78,7 +78,7 @@ export default function Manifesto() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 sm:mt-24 w-full flex justify-center"
+          className="mt-12 sm:mt-24 w-full flex justify-center"
         >
           <a
             href="#sobre"

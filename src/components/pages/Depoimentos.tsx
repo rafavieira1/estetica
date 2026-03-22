@@ -33,7 +33,7 @@ export default function Depoimentos() {
   };
 
   return (
-    <section id="depoimentos" className="py-24 lg:py-32 bg-[#fafafa]">
+    <section id="depoimentos" className="py-16 lg:py-32 bg-[#fafafa]">
       <div className="container mx-auto px-6 max-w-[1400px]">
         {/* TÍTULO PADRONIZADO */}
         <motion.div

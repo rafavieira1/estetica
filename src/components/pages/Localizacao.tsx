@@ -14,7 +14,7 @@ export default function Localizacao() {
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CLIENT.endereco)}`;
 
   return (
-    <section id="localizacao" className="py-24 lg:py-32 bg-[#Fbfbfb]">
+    <section id="localizacao" className="py-16 lg:py-32 bg-[#Fbfbfb]">
       <div className="container mx-auto px-6 max-w-[1400px]">
         {/* TÍTULO CENTRALIZADO NO TOPO */}
         <motion.div
@@ -47,7 +47,7 @@ export default function Localizacao() {
               Com este mapa, você pode facilmente encontrar nossa clínica. Estamos localizados em um ponto de fácil acesso para garantir o seu conforto. Entre em contato ou veja a rota.
             </p>
 
-            <div className="mb-14 flex flex-col sm:flex-row gap-10 sm:gap-16">
+            <div className="mb-14 flex flex-row flex-wrap gap-10 sm:gap-16">
               {/* Endereço */}
               <div>
                 <p className="text-[10px] font-bold tracking-widest uppercase text-[#aaa] mb-3">Endereço</p>
@@ -90,7 +90,7 @@ export default function Localizacao() {
           </motion.div>
 
           {/* Right Column: Map */}
-          <motion.div variants={fadeUp} className="w-full lg:w-1/2 relative h-[500px] lg:h-[650px] overflow-hidden rounded-[2.5rem] lg:rounded-[3rem] bg-[#f0f0f0] border-8 border-white shadow-2xl">
+          <motion.div variants={fadeUp} className="w-full lg:w-1/2 relative h-[350px] sm:h-[500px] lg:h-[650px] overflow-hidden rounded-[1.5rem] sm:rounded-[2.5rem] lg:rounded-[3rem] bg-[#f0f0f0] border-8 border-white shadow-2xl">
             <iframe
               title="Google Maps"
               src={`https://www.google.com/maps?q=${encodeURIComponent(CLIENT.endereco)}&output=embed`}

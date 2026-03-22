@@ -13,8 +13,18 @@ export default function SocialCTA() {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative w-full rounded-[2rem] lg:rounded-[3rem] overflow-hidden flex flex-col lg:flex-row bg-[#111] shadow-2xl"
+          className="relative w-full rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[3rem] overflow-hidden flex flex-col lg:flex-row bg-[#111] shadow-2xl"
         >
+          {/* Background image visível apenas no mobile (hidden no lg+) */}
+          <div className="absolute inset-0 lg:hidden">
+            <img
+              src="https://images.unsplash.com/photo-1500917129638-ca7e13bc30f3?q=80&w=1170&auto=format&fit=crop"
+              alt=""
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#111]/80 via-[#111]/70 to-[#111]/80 pointer-events-none" />
+          </div>
+
           {/* Coluna Esquerda: Texto */}
           <div className="relative z-10 w-full lg:w-[55%] flex flex-col justify-center items-start text-left py-12 px-8 sm:py-16 sm:px-12 lg:py-24 lg:pl-16 lg:pr-12 xl:pl-20 xl:pr-16">
             {/* Tag */}
@@ -51,8 +61,8 @@ export default function SocialCTA() {
             </div>
           </div>
 
-          {/* Coluna Direita: Imagem/Ilustração */}
-          <div className="relative w-full lg:w-[45%] h-[350px] sm:h-[450px] lg:h-auto overflow-hidden">
+          {/* Coluna Direita: Imagem/Ilustração — visível apenas no desktop */}
+          <div className="hidden lg:block relative w-full lg:w-[45%] h-[350px] sm:h-[450px] lg:h-auto overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1500917129638-ca7e13bc30f3?q=80&w=1170&auto=format&fit=crop"
               alt="Aesthetic Texture"

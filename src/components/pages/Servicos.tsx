@@ -55,7 +55,7 @@ export default function Servicos() {
   const active = categorias.find((c) => c.label === activeTab) ?? categorias[0];
 
   return (
-    <section id="servicos" className="py-24 lg:py-32 bg-[#fafafa]">
+    <section id="servicos" className="py-16 lg:py-32 bg-[#fafafa]">
       <div className="container mx-auto px-6 max-w-[1400px]">
         {/* ── HEADER ── */}
         <motion.div
@@ -63,7 +63,7 @@ export default function Servicos() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="w-full flex flex-col items-center justify-center text-center mb-12 lg:mb-16"
+          className="w-full flex flex-col items-center justify-center text-center mb-8 lg:mb-16"
         >
           <BadgeGlass className="mb-6">O que oferecemos</BadgeGlass>
           <h2 className="text-4xl sm:text-5xl lg:text-7xl font-normal tracking-tight text-[#111] leading-[1.1]">
@@ -77,7 +77,7 @@ export default function Servicos() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="flex justify-center mb-16 lg:mb-20"
+          className="flex justify-center mb-10 lg:mb-20"
         >
           <NavBar
             items={navItems}

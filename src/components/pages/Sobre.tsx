@@ -33,7 +33,7 @@ export default function Sobre() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="flex flex-col lg:flex-row lg:items-stretch justify-between gap-16 lg:gap-8"
+          className="flex flex-col lg:flex-row lg:items-stretch justify-between gap-10 lg:gap-8"
         >
           {/* Left: Titles */}
           <motion.div variants={fadeUp} className="flex-1 w-full lg:text-right relative mt-0 flex flex-col justify-center gap-2">
@@ -62,11 +62,11 @@ export default function Sobre() {
                 O {CLIENT.nome} nasceu com o propósito de transformar o cuidado estético, focando em resultados que realçam sua melhor versão. Com um compromisso profundo com o bem-estar e a excelência, criamos uma experiência inesquecível de conforto para cada mulher.
               </p>
 
-              <FlowButton text="Quem Somos" href="#servicos" className="mb-16 lg:mb-0 w-fit" />
+              <FlowButton text="Quem Somos" href="#servicos" className="mb-6 lg:mb-0 w-fit" />
             </div>
 
             {/* Stats inline */}
-            <div className="flex items-center gap-10 sm:gap-14 w-full mt-10 lg:mt-0">
+            <div className="flex items-center gap-10 sm:gap-14 w-full mt-6 lg:mt-0">
               <div className="flex items-center gap-4">
                 <span className="text-5xl md:text-6xl xl:text-[5rem] font-black tracking-tighter text-[#111] leading-none">
                   8
