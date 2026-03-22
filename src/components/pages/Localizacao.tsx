@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { MessageCircle, Home, Sparkles } from "lucide-react";
+import { FlowButton } from "@/components/ui/flow-button";
+import { BadgeGlass } from "@/components/ui/badge-glass";
 import { CLIENT } from "@/config/client";
 
 const fadeUp = {
@@ -22,9 +24,7 @@ export default function Localizacao() {
           transition={{ duration: 0.6 }}
           className="w-full flex flex-col items-center justify-center text-center mb-16 lg:mb-24"
         >
-          <p className="text-[#777] font-medium tracking-widest text-[11px] sm:text-xs uppercase mb-4 whitespace-nowrap">
-            [ LOCALIZAÇÃO ]
-          </p>
+          <BadgeGlass className="mb-6">Localização</BadgeGlass>
           <h2 className="text-4xl sm:text-5xl lg:text-7xl font-normal tracking-tight text-[#111] leading-[1.1]">
             Onde nos encontrar
           </h2>
@@ -47,59 +47,46 @@ export default function Localizacao() {
               Com este mapa, você pode facilmente encontrar nossa clínica. Estamos localizados em um ponto de fácil acesso para garantir o seu conforto. Entre em contato ou veja a rota.
             </p>
 
-            <div className="mb-14">
-              <p className="text-xs font-bold text-[#111] mb-4">FALAREMOS EM BREVE</p>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#111] text-white px-6 py-3.5 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-[#111]/80 transition-colors shadow-lg"
-                >
-                  <MessageCircle size={18} fill="currentColor" className="text-white" />
-                  Falar no WhatsApp
-                </a>
-                <a
-                  href={mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white border-2 border-gray-200 text-[#111] px-6 py-3.5 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-gray-50 transition-colors"
-                >
-                  Ver no Mapa
-                </a>
+            <div className="mb-14 flex flex-col sm:flex-row gap-10 sm:gap-16">
+              {/* Endereço */}
+              <div>
+                <p className="text-[10px] font-bold tracking-widest uppercase text-[#aaa] mb-3">Endereço</p>
+                <p className="text-sm font-medium text-[#111] leading-relaxed">
+                  Rua Salgado Filho, 742<br />
+                  Centro — Medianeira, PR<br />
+                  CEP 85884-000
+                </p>
+              </div>
+
+              {/* Horários */}
+              <div>
+                <p className="text-[10px] font-bold tracking-widest uppercase text-[#aaa] mb-3">Horários</p>
+                <div className="text-sm font-medium text-[#111] leading-relaxed space-y-0.5">
+                  <p><span className="text-[#555]">Seg – Sex</span>&nbsp;&nbsp;09h – 19h</p>
+                  <p><span className="text-[#555]">Sábado</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09h – 17h</p>
+                  <p><span className="text-[#aaa]">Domingo</span>&nbsp;&nbsp;&nbsp;Fechado</p>
+                </div>
               </div>
             </div>
 
-            {/* Stats Pill Bar */}
-            <div className="bg-[#f4f4f4] rounded-[2.5rem] py-6 px-8 flex items-center justify-between w-full max-w-[28rem] mt-auto">
-              <div className="flex flex-col items-center justify-center flex-1">
-                <div className="flex items-center gap-2 mb-1">
-                  <Home size={16} className="text-[#111] shrink-0" strokeWidth={2.5} />
-                  <span className="font-extrabold text-xl md:text-2xl text-[#111]">8+</span>
-                </div>
-                <span className="text-[10px] text-gray-500 font-bold mt-1 uppercase tracking-wider">Anos</span>
-              </div>
-
-              <div className="w-px h-10 bg-gray-300 mx-2" />
-
-              <div className="flex flex-col items-center justify-center flex-1">
-                <div className="flex items-center gap-2 mb-1">
-                  <MessageCircle size={16} className="text-[#111] shrink-0" strokeWidth={2.5} fill="currentColor" />
-                  <span className="font-extrabold text-xl md:text-2xl text-[#111]">500+</span>
-                </div>
-                <span className="text-[10px] text-gray-500 font-bold mt-1 uppercase tracking-wider">Clientes</span>
-              </div>
-
-              <div className="w-px h-10 bg-gray-300 mx-2" />
-
-              <div className="flex flex-col items-center justify-center flex-1">
-                <div className="flex items-center gap-2 mb-1">
-                  <Sparkles size={16} className="text-[#111] shrink-0" strokeWidth={2.5} />
-                  <span className="font-extrabold text-xl md:text-2xl text-[#111]">100%</span>
-                </div>
-                <span className="text-[10px] text-gray-500 font-bold mt-1 uppercase tracking-wider">Beleza</span>
-              </div>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+              <FlowButton
+                text="Falar no WhatsApp"
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              />
+              <FlowButton
+                text="Ver no Mapa"
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              />
             </div>
+
+{/* Seção movida para o componente Estatisticas.tsx */}
           </motion.div>
 
           {/* Right Column: Map */}

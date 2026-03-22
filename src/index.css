@@ -7,29 +7,29 @@
 
 @layer base {
   :root {
-    --salon-primary: 39 50% 61%;
+    --salon-primary: 0 0% 0%;
     --salon-secondary: 0 0% 10%;
-    --salon-accent: 30 33% 94%;
+    --salon-accent: 0 0% 96%;
 
-    --background: 30 33% 94%;
+    --background: 0 0% 100%;
     --foreground: 0 0% 10%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
-    --primary: 39 50% 61%;
+    --primary: 0 0% 0%;
     --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 10%;
-    --secondary-foreground: 30 33% 94%;
-    --muted: 30 20% 90%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 96%;
     --muted-foreground: 0 0% 40%;
-    --accent: 30 33% 94%;
+    --accent: 0 0% 96%;
     --accent-foreground: 0 0% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 39 30% 80%;
-    --input: 39 30% 80%;
-    --ring: 39 50% 61%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
     --radius: 0.5rem;
 
     --font-serif: 'Cormorant Garamond', Georgia, serif;

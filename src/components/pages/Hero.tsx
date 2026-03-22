@@ -34,23 +34,6 @@ export default function Hero() {
       {/* Bottom Interface */}
       <div className="relative z-20 flex flex-col md:flex-row justify-between items-center md:items-end w-full px-6 sm:px-12 pb-12 gap-8 md:gap-4 mx-auto max-w-[1400px]">
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-2xl sm:text-3xl font-light tracking-wide text-[#222]"
-        >
-          Desde 2017
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="md:max-w-xs text-sm sm:text-base text-[#444] font-medium leading-relaxed text-center md:text-left"
-        >
-          Cada design reflete o diálogo entre arte e sentimento, explorando o que significa expressar a si mesma com elegância e profundidade.
-        </motion.div>
 
       </div>
     </section>

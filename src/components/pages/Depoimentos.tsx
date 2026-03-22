@@ -1,5 +1,7 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
+import { BadgeGlass } from "@/components/ui/badge-glass";
 import { CLIENT } from "@/config/client";
 
 const container = {
@@ -41,11 +43,7 @@ export default function Depoimentos() {
            transition={{ duration: 0.6 }}
            className="text-center mb-16 lg:mb-24 flex flex-col items-center"
         >
-           <div className="flex justify-center mb-6">
-              <span className="uppercase tracking-[0.2em] text-xs font-bold border border-[#111] px-4 py-2 rounded-full text-[#111]">
-                [ DEPOIMENTOS ]
-              </span>
-           </div>
+           <BadgeGlass className="mb-6">Depoimentos</BadgeGlass>
            <h2 className="text-4xl md:text-5xl lg:text-7xl font-normal tracking-tight text-[#111] max-w-4xl mx-auto leading-[1.1]">
              O que dizem sobre nós
            </h2>
@@ -76,7 +74,7 @@ export default function Depoimentos() {
                 {/* Nota */}
                 <div className="flex items-center gap-1.5 font-bold text-sm">
                   <span>{dep.nota}.0</span>
-                  <Star className="w-4 h-4 fill-amber-500 text-amber-500" />
+                  <Star className="w-4 h-4 fill-current text-current" />
                   <span className={`font-normal uppercase tracking-wide text-[10px] md:text-xs ml-0.5 ${i === 0 ? 'opacity-70' : 'opacity-60'}`}>
                     Rating
                   </span>

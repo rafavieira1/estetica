@@ -11,9 +11,9 @@ export const CLIENT = {
     "Domingo": "Fechado",
   } as Record<string, string>,
   cores: {
-    primaria: "#C9A96E",
+    primaria: "#111",
     secundaria: "#1a1a1a",
-    acento: "#f5f0ea",
+    acento: "#f5f5f5",
   },
   servicos: [
     { icone: "scissors", nome: "Corte", descricao: "Cortes modernos e clássicos para todos os estilos" },
@@ -22,6 +22,9 @@ export const CLIENT = {
     { icone: "eye", nome: "Sobrancelhas", descricao: "Design que valoriza o seu olhar" },
     { icone: "zap", nome: "Tratamento", descricao: "Hidratação e reconstrução para cabelos saudáveis" },
     { icone: "star", nome: "Maquiagem", descricao: "Make para eventos, festas e dia a dia" },
+    { icone: "sparkles", nome: "Limpeza de Pele", descricao: "Renovação celular e remoção de impurezas profundas" },
+    { icone: "wind", nome: "Massagem Relaxante", descricao: "Alívio de tensões e relaxamento corporal completo" },
+    { icone: "droplets", nome: "Drenagem Linfática", descricao: "Redução de inchaços e melhora da circulação" },
   ],
   depoimentos: [
     { 

@@ -1,5 +1,7 @@
 import { motion, Variants } from "framer-motion";
 import { CLIENT } from "@/config/client";
+import { FlowButton } from "@/components/ui/flow-button";
+import { BadgeGlass } from "@/components/ui/badge-glass";
 import aboutImage from "@/assets/about-salon.jpg";
 
 export default function Sobre() {
@@ -23,9 +25,7 @@ export default function Sobre() {
           viewport={{ once: true }}
           className="w-full flex justify-center mb-16"
         >
-          <span className="text-[#777] font-medium tracking-widest text-[11px] sm:text-xs uppercase whitespace-nowrap">
-            [ SOBRE NÓS ]
-          </span>
+          <BadgeGlass>Sobre Nós</BadgeGlass>
         </motion.div>
 
         <motion.div
@@ -62,12 +62,7 @@ export default function Sobre() {
                 O {CLIENT.nome} nasceu com o propósito de transformar o cuidado estético, focando em resultados que realçam sua melhor versão. Com um compromisso profundo com o bem-estar e a excelência, criamos uma experiência inesquecível de conforto para cada mulher.
               </p>
 
-              <a
-                href="#servicos"
-                className="inline-flex items-center justify-center gap-4 px-6 py-3 border border-[#111] text-[#111] text-[13px] font-bold tracking-widest hover:bg-[#111] hover:text-white transition-colors uppercase mb-16 lg:mb-0"
-              >
-                Quem Somos <span className="text-xl leading-none mt-[-2px]">↗</span>
-              </a>
+              <FlowButton text="Quem Somos" href="#servicos" className="mb-16 lg:mb-0 w-fit" />
             </div>
 
             {/* Stats inline */}

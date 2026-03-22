@@ -1,8 +1,10 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Maximize2, X, ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { ChevronRight, ChevronLeft, MapPin, Instagram, X } from "lucide-react";
+import { CLIENT } from "@/config/client";
+import { BadgeGlass } from "@/components/ui/badge-glass";
 
-type LayoutType = "center" | "right";
+type LayoutType = "center" | "right" | "left";
 
 interface GalleryItem {
   id: string;
@@ -22,7 +24,7 @@ const galleryItems: GalleryItem[] = [
       "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&q=80&w=800",
       "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&q=80&w=800",
     ],
-    layout: "center",
+    layout: "left",
   },
   {
     id: "loiro",
@@ -40,11 +42,11 @@ const galleryItems: GalleryItem[] = [
     title: "Make Glamour",
     subtitle: "Maquiagem Social",
     images: [
-      "https://images.unsplash.com/photo-1516975080665-22d7d8e64bdf?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1595950653106-6c9ebd614c3a?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80&w=800",
       "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80&w=800",
     ],
-    layout: "right",
+    layout: "left",
   },
   {
     id: "spa",
@@ -53,9 +55,9 @@ const galleryItems: GalleryItem[] = [
     images: [
       "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=800",
       "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1600334129128-68505382c674?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=800",
     ],
-    layout: "center",
+    layout: "right",
   },
 ];
 
@@ -119,9 +121,7 @@ export default function Galeria() {
           transition={{ duration: 0.6 }}
           className="w-full flex flex-col items-center justify-center text-center mb-16 lg:mb-24"
         >
-          <p className="text-[#777] font-medium tracking-widest text-[11px] sm:text-xs uppercase mb-4 whitespace-nowrap">
-            [ GALERIA ]
-          </p>
+          <BadgeGlass className="mb-6">Galeria</BadgeGlass>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-[#111] leading-[1.1]">
             Nosso Trabalho
           </h2>
@@ -142,8 +142,13 @@ export default function Galeria() {
               className="relative aspect-square sm:aspect-[4/3] bg-[#fbfbfb] flex flex-col justify-between overflow-hidden group cursor-pointer"
               onClick={() => setLightboxState({ categoryIdx: i, imageIdx: activeIndexes[i] })}
             >
-              {/* TOP LEFT (TEXT) */}
-              <div className="absolute top-6 left-6 sm:top-8 sm:left-8 z-20 pointer-events-none">
+              {/* CORNER TEXT */}
+              <div
+                className={`absolute top-6 sm:top-8 z-20 pointer-events-none ${item.layout === "left"
+                  ? "right-6 sm:right-8 text-right"
+                  : "left-6 sm:left-8 text-left"
+                  }`}
+              >
                 <h3 className="font-display font-bold tracking-tight text-xl sm:text-2xl text-[#111] mb-1">
                   {item.title}
                 </h3>
@@ -186,42 +191,62 @@ export default function Galeria() {
                 </div>
               )}
 
+              {/* LEFT IMAGE LAYOUT */}
+              {item.layout === "left" && (
+                <div className="absolute inset-y-0 left-0 w-[55%] sm:w-[50%] z-0 overflow-hidden">
+                  <motion.img
+                    key={activeIndexes[i]}
+                    initial={{ opacity: 0.5 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                    src={item.images[activeIndexes[i]]}
+                    alt={item.title}
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  {/* Subtle gradient to ensure text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-l from-[#fbfbfb] via-transparent to-transparent opacity-50 sm:hidden z-10"></div>
+                </div>
+              )}
+
               {/* BOTTOM CONTROLS (Dots and Arrows) */}
-              <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 flex items-center justify-between z-30">
-                {/* Dots Reativos */}
+              <div
+                className={`absolute bottom-6 sm:bottom-8 flex items-center gap-5 sm:gap-8 z-30 ${
+                  item.layout === "right" ? "left-6 sm:left-8" : "right-6 sm:right-8"
+                }`}
+              >
+                {/* Arrows Funcionais */}
+                <div className="flex gap-3 sm:gap-4 text-[#111]">
+                  <button
+                    onClick={(e) => prevImage(e, i)}
+                    className="hover:text-gray-400 transition-colors focus:outline-none"
+                    aria-label="Anterior"
+                  >
+                    <ChevronLeft strokeWidth={2.5} className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </button>
+                  <button
+                    onClick={(e) => nextImage(e, i)}
+                    className="hover:text-gray-400 transition-colors focus:outline-none"
+                    aria-label="Próxima"
+                  >
+                    <ChevronRight strokeWidth={2.5} className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </button>
+                </div>
+
+                {/* Dots Reativos (Apple Style) */}
                 <div className="flex gap-1.5 items-center">
                   {item.images.map((_, dotIdx) => (
                     <div
                       key={dotIdx}
-                      className={`w-1.5 h-1.5 rotate-45 transform transition-all duration-300 ${activeIndexes[i] === dotIdx ? 'bg-[#111] scale-[1.3]' : 'bg-gray-300'
-                        }`}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        activeIndexes[i] === dotIdx ? 'w-4 bg-[#111]' : 'w-1.5 bg-gray-300'
+                      }`}
                     />
                   ))}
                 </div>
-
-                {/* Arrows Funcionais */}
-                <div className="flex gap-4 text-gray-400">
-                  <button
-                    onClick={(e) => prevImage(e, i)}
-                    className="hover:text-[#111] transition-colors focus:outline-none bg-white/50 backdrop-blur-sm p-1 rounded-full group-hover:bg-white"
-                    aria-label="Anterior"
-                  >
-                    <ChevronLeft strokeWidth={2} className="w-5 h-5 sm:w-6 sm:h-6" />
-                  </button>
-                  <button
-                    onClick={(e) => nextImage(e, i)}
-                    className="hover:text-[#111] transition-colors focus:outline-none bg-white/50 backdrop-blur-sm p-1 rounded-full group-hover:bg-white"
-                    aria-label="Próxima"
-                  >
-                    <ChevronRight strokeWidth={2} className="w-5 h-5 sm:w-6 sm:h-6" />
-                  </button>
-                </div>
               </div>
 
-              {/* Overlay Hover Indicando que é Clicável (Expandir) */}
-              <div className="absolute inset-0 bg-[#111]/0 group-hover:bg-[#111]/5 transition-colors duration-500 z-10 flex items-center justify-center pointer-events-none">
-                <Maximize2 strokeWidth={1} className="text-[#111] opacity-0 group-hover:opacity-60 transition-opacity duration-500 scale-150 absolute top-1/2 left-[45%] md:left-1/2 -translate-y-1/2 -translate-x-1/2" size={32} />
-              </div>
+              {/* Retirado o Overlay com botão Expandir */}
             </motion.div>
           ))}
         </motion.div>

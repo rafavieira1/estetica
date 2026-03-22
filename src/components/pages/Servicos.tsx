@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CLIENT } from "@/config/client";
+import { BadgeGlass } from "@/components/ui/badge-glass";
 import { NavBar } from "@/components/ui/tubelight-navbar";
 import { Sparkles, Hand, Scissors } from "lucide-react";
 
@@ -11,7 +12,7 @@ const categorias = [
     title: "Cuidados\ncom a pele",
     icon: Sparkles,
     services: CLIENT.servicos.filter((s) =>
-      ["Sobrancelhas", "Maquiagem"].includes(s.nome)
+      ["Sobrancelhas", "Maquiagem", "Limpeza de Pele"].includes(s.nome)
     ),
     image: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&q=80&w=900",
     description:
@@ -23,7 +24,7 @@ const categorias = [
     title: "Rituais\ncorporais",
     icon: Hand,
     services: CLIENT.servicos.filter((s) =>
-      ["Manicure"].includes(s.nome)
+      ["Manicure", "Massagem Relaxante", "Drenagem Linfática"].includes(s.nome)
     ),
     image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=900",
     description:
@@ -64,9 +65,7 @@ export default function Servicos() {
           transition={{ duration: 0.6 }}
           className="w-full flex flex-col items-center justify-center text-center mb-12 lg:mb-16"
         >
-          <p className="text-[#777] font-medium tracking-widest text-[11px] sm:text-xs uppercase mb-4 whitespace-nowrap">
-            [ O QUE OFERECEMOS ]
-          </p>
+          <BadgeGlass className="mb-6">O que oferecemos</BadgeGlass>
           <h2 className="text-4xl sm:text-5xl lg:text-7xl font-normal tracking-tight text-[#111] leading-[1.1]">
             Nossos serviços
           </h2>

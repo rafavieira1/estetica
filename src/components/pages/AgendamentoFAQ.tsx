@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, MessageCircle, Check } from "lucide-react";
 import { CLIENT } from "@/config/client";
-import { Check } from "lucide-react";
+import { FlowButton } from "@/components/ui/flow-button";
+import { BadgeGlass } from "@/components/ui/badge-glass";
 
 const faqs = [
   { 
@@ -53,9 +55,7 @@ export default function AgendamentoFAQ() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 lg:mb-24 flex justify-center"
         >
-          <span className="uppercase tracking-[0.2em] text-xs font-bold border border-[#111] px-4 py-2 rounded-full text-[#111]">
-            [ DÚVIDAS E RESERVAS ]
-          </span>
+          <BadgeGlass className="mb-10">Dúvidas e Reservas</BadgeGlass>
         </motion.div>
 
         {/* Mudei "items-start" para "items-stretch" para a esquerda ocupar a mesma altura do Card da direita */}
@@ -183,12 +183,11 @@ export default function AgendamentoFAQ() {
 
                     {/* Botão de Envio CTA (Agora na direita ou centralizado igual referência) */}
                     <div className="flex justify-center mt-6">
-                      <button 
+                      <FlowButton 
                         type="submit"
-                        className="bg-[#111] text-white rounded-full py-4 px-10 font-bold text-sm hover:scale-[1.02] transform transition-all shadow-md active:scale-95"
-                      >
-                        Continuar para o WhatsApp
-                      </button>
+                        text="Continuar para o WhatsApp"
+                        className="px-10"
+                      />
                     </div>
 
                   </form>
