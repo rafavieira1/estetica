@@ -22,15 +22,13 @@ export default function Manifesto() {
   const textContainer = useRef<HTMLDivElement>(null);
 
   // Mapeia o progresso do scroll diretamente no bloco de texto
-  // Inicia quando o topo do texto alcança os últimos 15% (85%) da tela de baixo para cima
-  // Termina quando a base de todo o texto cruza a metade da tela (50%)
   const { scrollYProgress } = useScroll({
     target: textContainer,
     offset: ["start 85%", "end 50%"],
   });
 
   const titleWords = CLIENT.nome.split(" ");
-  const phrase = `O ${CLIENT.nome} oferece um atendimento altamente premium, projetado intencionalmente para lapidar a sua melhor versão.`;
+  const phrase = `O ${CLIENT.nome} ${CLIENT.manifesto.frase}`;
   const subtitleWords = phrase.split(" ");
   const totalWords = titleWords.length + subtitleWords.length;
 
@@ -81,10 +79,10 @@ export default function Manifesto() {
           className="mt-12 sm:mt-24 w-full flex justify-center"
         >
           <a
-            href="#sobre"
+            href={CLIENT.manifesto.linkHref}
             className="text-sm md:text-base font-semibold tracking-wider text-[#999] border-b-[1.5px] border-[#999] pb-1 hover:text-[#111] hover:border-[#111] transition-colors uppercase"
           >
-            Conheça o estúdio
+            {CLIENT.manifesto.linkTexto}
           </a>
         </motion.div>
       </div>

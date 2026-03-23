@@ -3,51 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CLIENT } from "@/config/client";
 import { BadgeGlass } from "@/components/ui/badge-glass";
 import { NavBar } from "@/components/ui/tubelight-navbar";
-import { Sparkles, Hand, Scissors } from "lucide-react";
 
-// Importar imagens locais
-import cuidadosImg from "@/assets/cuidados.avif";
-import rituaisImg from "@/assets/rituaiscorporais.avif";
-import capilaresImg from "@/assets/capilares.avif";
-
-const categorias = [
-  {
-    id: "rosto",
-    label: "Cuidados com a Pele",
-    title: "Cuidados\ncom a pele",
-    icon: Sparkles,
-    services: CLIENT.servicos.filter((s) =>
-      ["Sobrancelhas", "Maquiagem", "Limpeza de Pele"].includes(s.nome)
-    ),
-    image: cuidadosImg,
-    description:
-      "Realce o que há de mais bonito em você. Nossos tratamentos faciais combinam técnicas avançadas com produtos selecionados para um resultado luminoso.",
-  },
-  {
-    id: "corpo",
-    label: "Rituais Corporais",
-    title: "Rituais\ncorporais",
-    icon: Hand,
-    services: CLIENT.servicos.filter((s) =>
-      ["Manicure", "Massagem Relaxante", "Drenagem Linfática"].includes(s.nome)
-    ),
-    image: rituaisImg,
-    description:
-      "Momentos de pausa e renovação. Rituais pensados para desacelerar, nutrir e conectar corpo e mente de forma profunda.",
-  },
-  {
-    id: "cabelo",
-    label: "Tratamentos Capilares",
-    title: "Tratamentos\ncapilares",
-    icon: Scissors,
-    services: CLIENT.servicos.filter((s) =>
-      ["Corte", "Coloração", "Tratamento"].includes(s.nome)
-    ),
-    image: capilaresImg,
-    description:
-      "Fios saudáveis, cortes precisos e cores vibrantes. Cada detalhe é pensado para que seu cabelo conte a sua história.",
-  },
-];
+const categorias = CLIENT.categoriasServicos.map((cat) => ({
+  ...cat,
+  services: CLIENT.servicos.filter((s) => cat.filtro.includes(s.nome)),
+}));
 
 // Preparar itens para o NavBar
 const navItems = categorias.map((c) => ({
@@ -106,7 +66,7 @@ export default function Servicos() {
               {/* Category Image */}
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl lg:rounded-3xl bg-gray-100">
                 <img
-                  src={active.image}
+                  src={active.imagem}
                   alt={active.label}
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   loading="lazy"
@@ -124,7 +84,7 @@ export default function Servicos() {
 
               {/* Description */}
               <p className="text-gray-500 text-sm md:text-base leading-relaxed font-medium max-w-lg">
-                {active.description}
+                {active.descricao}
               </p>
             </div>
 

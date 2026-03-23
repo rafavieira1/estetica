@@ -1,7 +1,7 @@
 import { motion, useInView, animate } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import numerosImg from "@/assets/numeros.avif";
+import { useEffect, useRef } from "react";
 import { BadgeGlass } from "@/components/ui/badge-glass";
+import { CLIENT } from "@/config/client";
 
 function AnimatedCounter({ from, to, duration = 2, suffix = "" }: { from: number, to: number, duration?: number, suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -30,7 +30,7 @@ export default function Estatisticas() {
       {/* Background Texture Overlay */}
       <div className="absolute inset-0 w-full h-full opacity-70">
         <img
-          src={numerosImg}
+          src={CLIENT.estatisticas.imagem}
           alt="Dark Aesthetic Texture"
           className="w-full h-full object-cover grayscale"
         />
@@ -42,7 +42,7 @@ export default function Estatisticas() {
       <div className="container relative z-10 mx-auto px-6 max-w-[1400px]">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 lg:gap-12">
 
-          {/* Text Area — aparece primeiro no mobile, direita no desktop */}
+          {/* Text Area */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -56,39 +56,25 @@ export default function Estatisticas() {
             </h2>
           </motion.div>
 
-          {/* Numbers Area — aparece depois no mobile, esquerda no desktop */}
+          {/* Numbers Area */}
           <div className="order-last lg:order-first flex flex-col sm:flex-row gap-12 sm:gap-20 w-full lg:w-3/5">
-            {/* Stat 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="flex flex-col"
-            >
-              <h3 className="font-['Libre_Caslon_Display'] font-normal text-[60px] sm:text-[80px] md:text-[100px] lg:text-[130px] leading-none text-white tracking-tighter mb-2">
-                <AnimatedCounter from={0} to={8} suffix="+" />
-              </h3>
-              <p className="text-white/70 font-medium text-lg lg:text-xl tracking-tight">
-                Anos de experiência
-              </p>
-            </motion.div>
-
-            {/* Stat 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex flex-col"
-            >
-              <h3 className="font-['Libre_Caslon_Display'] font-normal text-[60px] sm:text-[80px] md:text-[100px] lg:text-[130px] leading-none text-white tracking-tighter mb-2">
-                <AnimatedCounter from={0} to={500} suffix="+" />
-              </h3>
-              <p className="text-white/70 font-medium text-lg lg:text-xl tracking-tight">
-                Clientes atendidas
-              </p>
-            </motion.div>
+            {CLIENT.estatisticas.itens.map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: i * 0.2 }}
+                className="flex flex-col"
+              >
+                <span className="font-['Libre_Caslon_Display'] font-normal text-[60px] sm:text-[80px] md:text-[100px] lg:text-[130px] leading-none text-white tracking-tighter mb-2">
+                  <AnimatedCounter from={0} to={stat.valor} suffix={stat.sufixo} />
+                </span>
+                <p className="text-white/70 font-medium text-lg lg:text-xl tracking-tight">
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
           </div>
 
         </div>

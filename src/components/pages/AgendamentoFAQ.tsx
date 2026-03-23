@@ -1,32 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, MessageCircle, Check } from "lucide-react";
 import { CLIENT } from "@/config/client";
 import { FlowButton } from "@/components/ui/flow-button";
 import { BadgeGlass } from "@/components/ui/badge-glass";
-
-const faqs = [
-  { 
-    pergunta: "Como funciona a primeira avaliação?", 
-    resposta: "Realizamos uma análise detalhada da sua pele e entendemos seus objetivos para criar um protocolo de tratamento 100% personalizado para você." 
-  },
-  { 
-    pergunta: "Os procedimentos causam desconforto?", 
-    resposta: "Nossa prioridade é o seu bem-estar. Utilizamos técnicas avançadas, produtos de alta tecnologia e anestésicos tópicos para garantir uma experiência confortável e relaxante." 
-  },
-  { 
-    pergunta: "Em quanto tempo vejo os resultados?", 
-    resposta: "Muitos de nossos tratamentos oferecem resultados imediatos, como o brilho e a textura após uma limpeza profunda. Outros estímulos de colágeno apresentam resultados progressivos nas semanas seguintes." 
-  },
-  { 
-    pergunta: "Quais são as formas de pagamento?", 
-    resposta: "Aceitamos PIX, cartões de débito e crédito, com possibilidade de parcelamento dependendo do protocolo escolhido." 
-  },
-  { 
-    pergunta: "E se eu precisar remarcar meu horário?", 
-    resposta: "Imprevistos acontecem! Pedimos apenas que nos comunique com pelo menos 24 horas de antecedência para reorganizarmos nossa agenda sem custos adicionais." 
-  }
-];
 
 export default function AgendamentoFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -34,7 +10,7 @@ export default function AgendamentoFAQ() {
   // Form state
   const [nome, setNome] = useState("");
   const [servico, setServico] = useState("");
-  const [periodo, setPeriodo] = useState("Qualquer horário");
+  const [periodo, setPeriodo] = useState(CLIENT.turnos[CLIENT.turnos.length - 1]);
 
   const handleWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,12 +34,11 @@ export default function AgendamentoFAQ() {
           <BadgeGlass className="mb-10">Dúvidas e Reservas</BadgeGlass>
         </motion.div>
 
-        {/* Mudei "items-start" para "items-stretch" para a esquerda ocupar a mesma altura do Card da direita */}
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-24 items-stretch">
           
           {/* LADO ESQUERDO: Título e FAQ */}
           <div className="w-full lg:w-1/2 flex flex-col pt-4">
-             {/* TÍTULO GRANDE (Alinhado à esquerda) com tipografia inspirada na imagem */}
+             {/* TÍTULO GRANDE */}
              <motion.div
                initial={{ opacity: 0, y: 30 }}
                whileInView={{ opacity: 1, y: 0 }}
@@ -76,12 +51,12 @@ export default function AgendamentoFAQ() {
                 </h2>
              </motion.div>
 
-             {/* Spacer para jogar o FAQ lá pra baixo (igual na referência) */}
+             {/* Spacer */}
              <div className="flex-grow min-h-[4rem]"></div>
 
              {/* ACORDEÃO DE FAQ */}
              <div className="flex flex-col border-t border-[#111]/10 w-full mb-4">
-               {faqs.map((faq, i) => (
+               {CLIENT.faq.map((faq, i) => (
                  <div key={i} className="border-b border-[#111]/10 overflow-hidden">
                    <button 
                      onClick={() => setOpenIndex(openIndex === i ? null : i)} 
@@ -136,7 +111,7 @@ export default function AgendamentoFAQ() {
                   {/* FORMULÁRIO */}
                   <form onSubmit={handleWhatsApp} className="flex flex-col gap-6">
                     
-                    {/* Linha 1: Nome e Sobrenome (agora em duas colunas como na imagem) */}
+                    {/* Linha 1: Nome e Sobrenome */}
                     <div className="flex flex-col sm:flex-row gap-4">
                       <input 
                         type="text" 
@@ -166,11 +141,11 @@ export default function AgendamentoFAQ() {
                       <p className="text-xs text-[#999] mt-2 ml-4">Você receberá nosso menu após o contato.</p>
                     </div>
 
-                    {/* Linha 3: Período Preferencial (Radio Buttons cinzas pílulas) */}
+                    {/* Linha 3: Período Preferencial */}
                     <div>
                       <p className="text-sm font-bold text-[#111] mb-3 ml-2">Qual sua preferência de turno?</p>
                       <div className="flex flex-col gap-3">
-                        {["Manhã (09h - 12h)", "Tarde (13h - 18h)", "Sem preferência específica"].map((opcao) => (
+                        {CLIENT.turnos.map((opcao) => (
                            <label key={opcao} className={`flex items-center gap-4 py-3 px-5 rounded-full cursor-pointer transition-colors border ${periodo === opcao ? 'bg-[#f4f4f4] border-[#d1d1d1]' : 'bg-[#f8f8f8] border-transparent hover:bg-[#f4f4f4]'}`}>
                               <div className={`w-4 h-4 rounded-full border-[1.5px] flex items-center justify-center shrink-0 bg-white ${periodo === opcao ? 'border-[#111] bg-[#111]' : 'border-[#ccc]'}`}>
                                 {periodo === opcao && <div className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0" />}
@@ -181,7 +156,7 @@ export default function AgendamentoFAQ() {
                       </div>
                     </div>
 
-                    {/* Botão de Envio CTA (Agora na direita ou centralizado igual referência) */}
+                    {/* Botão de Envio CTA */}
                     <div className="flex justify-center mt-6">
                       <FlowButton 
                         type="submit"

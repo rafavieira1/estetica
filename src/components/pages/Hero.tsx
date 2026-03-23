@@ -1,6 +1,4 @@
-import { motion } from "framer-motion";
 import { CLIENT } from "@/config/client";
-import heroImage from "@/assets/hero.webp";
 
 export default function Hero() {
   return (
@@ -9,8 +7,11 @@ export default function Hero() {
       {/* Huge Background Text */}
       <div className="absolute top-[12%] sm:top-[12%] left-0 w-full flex justify-between px-4 sm:px-12 z-0 pb-16">
         <h1 className="font-serif w-full flex flex-col items-center sm:flex-row sm:items-start justify-between text-[22vw] sm:text-[16vw] xl:text-[14vw] font-black leading-none tracking-tighter text-[#111] uppercase select-none pointer-events-none">
-          <span className="sm:-ml-[0vw]">Studi<span className="tracking-tight">o</span></span>
-          <span className="sm:-mr-[0vw]">B<span className="tracking-tight">ell</span>a</span>
+          {CLIENT.hero.linhas.map((linha, i) => (
+            <span key={i} className={i === 0 ? "sm:-ml-[0vw]" : "sm:-mr-[0vw]"}>
+              {linha}
+            </span>
+          ))}
         </h1>
       </div>
 
@@ -24,7 +25,7 @@ export default function Hero() {
           }}
         >
           <img
-            src={heroImage}
+            src={CLIENT.hero.imagem}
             alt={CLIENT.nome}
             className="w-full h-full object-cover sm:object-contain object-top sm:object-bottom"
           />

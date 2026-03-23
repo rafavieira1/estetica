@@ -1,69 +1,10 @@
-import React, { useRef, useState, useEffect } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import { ChevronRight, ChevronLeft, MapPin, Instagram, X } from "lucide-react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronRight, ChevronLeft, X } from "lucide-react";
 import { CLIENT } from "@/config/client";
 import { BadgeGlass } from "@/components/ui/badge-glass";
 
-// Skin Glow
-import skin1 from "@/assets/skin1.avif";
-import skin2 from "@/assets/skin2.avif";
-import skin3 from "@/assets/skin3.avif";
-
-// Loiro Perfeito
-import loiro1 from "@/assets/loiro1.avif";
-import loiro2 from "@/assets/loiro2.avif";
-import loiro3 from "@/assets/loiro3.avif";
-
-// Make Glamour
-import make1 from "@/assets/make1.avif";
-import make2 from "@/assets/make2.avif";
-import make3 from "@/assets/make3.avif";
-
-// Spa Relax
-import spa1 from "@/assets/spa1.avif";
-import spa2 from "@/assets/spa2.avif";
-import spa3 from "@/assets/spa3.avif";
-
-type LayoutType = "center" | "right" | "left";
-
-interface GalleryItem {
-  id: string;
-  title: string;
-  subtitle: string;
-  images: string[];
-  layout: LayoutType;
-}
-
-const galleryItems: GalleryItem[] = [
-  {
-    id: "skin",
-    title: "Skin Glow",
-    subtitle: "Hidratação Profunda",
-    images: [skin1, skin2, skin3],
-    layout: "left",
-  },
-  {
-    id: "loiro",
-    title: "Loiro Perfeito",
-    subtitle: "Mechas e Tonalização",
-    images: [loiro1, loiro2, loiro3],
-    layout: "right",
-  },
-  {
-    id: "make",
-    title: "Make Glamour",
-    subtitle: "Maquiagem Social",
-    images: [make1, make2, make3],
-    layout: "left",
-  },
-  {
-    id: "spa",
-    title: "Spa Relax",
-    subtitle: "Rituais Aromáticos",
-    images: [spa1, spa2, spa3],
-    layout: "right",
-  },
-];
+const galleryItems = CLIENT.galeria;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -71,8 +12,10 @@ const fadeUp = {
 };
 
 export default function Galeria() {
-  // Indices independentes para cara card (0 a 3)
-  const [activeIndexes, setActiveIndexes] = useState<number[]>([0, 0, 0, 0]);
+  // Indices independentes para cada card
+  const [activeIndexes, setActiveIndexes] = useState<number[]>(
+    galleryItems.map(() => 0)
+  );
 
   // Estado do lightbox: qual categoria está aberta e qual index de imagem
   const [lightboxState, setLightboxState] = useState<{ categoryIdx: number; imageIdx: number } | null>(null);
@@ -249,8 +192,6 @@ export default function Galeria() {
                   ))}
                 </div>
               </div>
-
-              {/* Retirado o Overlay com botão Expandir */}
             </motion.div>
           ))}
         </motion.div>

@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import { MessageCircle, Home, Sparkles } from "lucide-react";
+import { CLIENT } from "@/config/client";
 import { FlowButton } from "@/components/ui/flow-button";
 import { BadgeGlass } from "@/components/ui/badge-glass";
-import { CLIENT } from "@/config/client";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -12,6 +11,8 @@ const fadeUp = {
 export default function Localizacao() {
   const whatsappUrl = `https://wa.me/${CLIENT.whatsapp}?text=Olá! Pode me ensinar como chegar no espaço da ${CLIENT.nome}?`;
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CLIENT.endereco)}`;
+
+  const horarioEntries = Object.entries(CLIENT.horarios);
 
   return (
     <section id="localizacao" className="py-16 lg:py-32 bg-[#Fbfbfb]">
@@ -40,11 +41,11 @@ export default function Localizacao() {
           {/* Left Column */}
           <motion.div variants={fadeUp} className="w-full lg:w-1/2 flex flex-col pt-0 lg:pr-10">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#111] leading-[1.1] mb-6">
-              Encontre o melhor espaço para seu autocuidado<br className="hidden lg:block" />
+              {CLIENT.localizacao.titulo}<br className="hidden lg:block" />
             </h3>
 
             <p className="text-gray-500 text-sm md:text-base leading-relaxed max-w-lg mb-12 font-medium">
-              Com este mapa, você pode facilmente encontrar nossa clínica. Estamos localizados em um ponto de fácil acesso para garantir o seu conforto. Entre em contato ou veja a rota.
+              {CLIENT.localizacao.descricao}
             </p>
 
             <div className="mb-14 flex flex-row flex-wrap gap-10 sm:gap-16">
@@ -52,9 +53,9 @@ export default function Localizacao() {
               <div>
                 <p className="text-[10px] font-bold tracking-widest uppercase text-[#aaa] mb-3">Endereço</p>
                 <p className="text-sm font-medium text-[#111] leading-relaxed">
-                  Rua Salgado Filho, 742<br />
-                  Centro — Medianeira, PR<br />
-                  CEP 85884-000
+                  {CLIENT.localizacao.rua}<br />
+                  {CLIENT.localizacao.complemento}<br />
+                  {CLIENT.localizacao.cep}
                 </p>
               </div>
 
@@ -62,9 +63,12 @@ export default function Localizacao() {
               <div>
                 <p className="text-[10px] font-bold tracking-widest uppercase text-[#aaa] mb-3">Horários</p>
                 <div className="text-sm font-medium text-[#111] leading-relaxed space-y-0.5">
-                  <p><span className="text-[#555]">Seg – Sex</span>&nbsp;&nbsp;09h – 19h</p>
-                  <p><span className="text-[#555]">Sábado</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09h – 17h</p>
-                  <p><span className="text-[#aaa]">Domingo</span>&nbsp;&nbsp;&nbsp;Fechado</p>
+                  {horarioEntries.map(([dia, hora]) => (
+                    <p key={dia}>
+                      <span className={hora === "Fechado" ? "text-[#aaa]" : "text-[#555]"}>{dia}</span>
+                      &nbsp;&nbsp;{hora}
+                    </p>
+                  ))}
                 </div>
               </div>
             </div>
@@ -85,8 +89,6 @@ export default function Localizacao() {
                 className="w-full sm:w-auto"
               />
             </div>
-
-{/* Seção movida para o componente Estatisticas.tsx */}
           </motion.div>
 
           {/* Right Column: Map */}

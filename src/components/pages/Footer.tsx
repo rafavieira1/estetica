@@ -23,10 +23,10 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[#fafafa] pt-12 lg:pt-24 pb-20 lg:pb-48 flex flex-col justify-end">
 
-      {/* Marca D'Água STUDIO no fundo - renderizada antes para ficar no z-0 */}
+      {/* Marca D'Água no fundo */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex justify-center pointer-events-none select-none z-0 w-full overflow-hidden">
         <span className="font-serif text-[25vw] md:text-[22vw] lg:text-[20vw] font-black uppercase tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-b from-gray-200/80 to-[#fafafa] whitespace-nowrap translate-y-[23%] lg:translate-y-[33%]">
-          STUDIO
+          {CLIENT.footerMarcaDagua}
         </span>
       </div>
 
@@ -47,10 +47,10 @@ export default function Footer() {
                 <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#111]">{CLIENT.nome}</h3>
               </div>
               <p className="text-gray-500 text-sm leading-relaxed mb-6 font-medium">
-                {CLIENT.slogan} Entregando as melhores experiências para que você se sinta confiante, radiante e em harmonia com você.
+                {CLIENT.slogan} {CLIENT.footerDescricao}
               </p>
 
-              {/* Redes Sociais com ícones minimalistas */}
+              {/* Redes Sociais */}
               <div className="flex gap-4">
                 <a
                   href={`https://instagram.com/${CLIENT.instagram.replace("@", "")}`}
@@ -70,13 +70,17 @@ export default function Footer() {
                 >
                   <MessageCircle size={20} strokeWidth={2.5} />
                 </a>
-                <a
-                  href="#"
-                  className="text-[#111] hover:text-[#6C48F5] transition-colors"
-                  aria-label="Facebook"
-                >
-                  <Facebook size={20} strokeWidth={2.5} />
-                </a>
+                {CLIENT.facebook && (
+                  <a
+                    href={`https://facebook.com/${CLIENT.facebook}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#111] hover:text-[#6C48F5] transition-colors"
+                    aria-label="Facebook"
+                  >
+                    <Facebook size={20} strokeWidth={2.5} />
+                  </a>
+                )}
               </div>
             </div>
 

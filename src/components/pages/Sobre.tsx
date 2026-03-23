@@ -2,7 +2,6 @@ import { motion, Variants } from "framer-motion";
 import { CLIENT } from "@/config/client";
 import { FlowButton } from "@/components/ui/flow-button";
 import { BadgeGlass } from "@/components/ui/badge-glass";
-import aboutImage from "@/assets/about-salon.avif";
 
 export default function Sobre() {
   const container: Variants = {
@@ -38,9 +37,9 @@ export default function Sobre() {
           {/* Left: Titles */}
           <motion.div variants={fadeUp} className="flex-1 w-full lg:text-right relative mt-0 flex flex-col justify-center gap-2">
             <h2 className="text-[14vw] sm:text-[11vw] lg:text-5xl xl:text-6xl 2xl:text-[6.5rem] font-normal leading-[1.1] tracking-tight text-[#111] flex flex-col">
-              <span>ARTE</span>
-              <span>EM CADA</span>
-              <span>TRAÇO</span>
+              {CLIENT.sobre.titulos.map((titulo, i) => (
+                <span key={i}>{titulo}</span>
+              ))}
             </h2>
           </motion.div>
 
@@ -48,7 +47,7 @@ export default function Sobre() {
           <motion.div variants={fadeUp} className="w-full sm:w-[80%] mx-auto lg:w-[320px] xl:w-[420px] shrink-0">
             <div className="relative aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4]">
               <img
-                src={aboutImage}
+                src={CLIENT.sobre.imagem}
                 alt={`Sobre ${CLIENT.nome}`}
                 className="w-full h-full object-cover shadow-sm bg-gray-100"
               />
@@ -59,7 +58,7 @@ export default function Sobre() {
           <motion.div variants={fadeUp} className="flex-1 w-full mx-auto max-w-xl lg:max-w-md xl:max-w-lg flex flex-col lg:justify-between items-start lg:pl-4 xl:pl-8">
             <div className="flex flex-col items-start w-full">
               <p className="text-[15px] sm:text-base text-[#444] font-medium leading-relaxed mb-10 text-justify sm:text-left">
-                O {CLIENT.nome} nasceu com o propósito de transformar o cuidado estético, focando em resultados que realçam sua melhor versão. Com um compromisso profundo com o bem-estar e a excelência, criamos uma experiência inesquecível de conforto para cada mulher.
+                O {CLIENT.nome} {CLIENT.sobre.descricao}
               </p>
 
               <FlowButton text="Quem Somos" href="#servicos" className="mb-6 lg:mb-0 w-fit" />
@@ -67,23 +66,18 @@ export default function Sobre() {
 
             {/* Stats inline */}
             <div className="flex items-center gap-10 sm:gap-14 w-full mt-6 lg:mt-0">
-              <div className="flex items-center gap-4">
-                <span className="text-5xl md:text-6xl xl:text-[5rem] font-black tracking-tighter text-[#111] leading-none">
-                  8
-                </span>
-                <span className="text-[9px] md:text-[10px] text-[#555] font-semibold uppercase leading-tight tracking-[0.2em]">
-                  Anos de<br />Experiência
-                </span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <span className="text-5xl md:text-6xl xl:text-[5rem] font-black tracking-tighter text-[#111] leading-none">
-                  500
-                </span>
-                <span className="text-[9px] md:text-[10px] text-[#555] font-semibold uppercase leading-tight tracking-[0.2em]">
-                  Projetos<br />Concluídos
-                </span>
-              </div>
+              {CLIENT.sobre.estatisticas.map((stat, i) => (
+                <div key={i} className="flex items-center gap-4">
+                  <span className="text-5xl md:text-6xl xl:text-[5rem] font-black tracking-tighter text-[#111] leading-none">
+                    {stat.valor}
+                  </span>
+                  <span
+                    className="text-[9px] md:text-[10px] text-[#555] font-semibold uppercase leading-tight tracking-[0.2em] whitespace-pre-line"
+                  >
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
             </div>
           </motion.div>
         </motion.div>
