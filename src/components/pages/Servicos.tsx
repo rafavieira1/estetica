@@ -5,6 +5,11 @@ import { BadgeGlass } from "@/components/ui/badge-glass";
 import { NavBar } from "@/components/ui/tubelight-navbar";
 import { Sparkles, Hand, Scissors } from "lucide-react";
 
+// Importar imagens locais
+import cuidadosImg from "@/assets/cuidados.avif";
+import rituaisImg from "@/assets/rituaiscorporais.avif";
+import capilaresImg from "@/assets/capilares.avif";
+
 const categorias = [
   {
     id: "rosto",
@@ -14,7 +19,7 @@ const categorias = [
     services: CLIENT.servicos.filter((s) =>
       ["Sobrancelhas", "Maquiagem", "Limpeza de Pele"].includes(s.nome)
     ),
-    image: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&q=80&w=900",
+    image: cuidadosImg,
     description:
       "Realce o que há de mais bonito em você. Nossos tratamentos faciais combinam técnicas avançadas com produtos selecionados para um resultado luminoso.",
   },
@@ -26,7 +31,7 @@ const categorias = [
     services: CLIENT.servicos.filter((s) =>
       ["Manicure", "Massagem Relaxante", "Drenagem Linfática"].includes(s.nome)
     ),
-    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=900",
+    image: rituaisImg,
     description:
       "Momentos de pausa e renovação. Rituais pensados para desacelerar, nutrir e conectar corpo e mente de forma profunda.",
   },
@@ -38,7 +43,7 @@ const categorias = [
     services: CLIENT.servicos.filter((s) =>
       ["Corte", "Coloração", "Tratamento"].includes(s.nome)
     ),
-    image: "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=900",
+    image: capilaresImg,
     description:
       "Fios saudáveis, cortes precisos e cores vibrantes. Cada detalhe é pensado para que seu cabelo conte a sua história.",
   },

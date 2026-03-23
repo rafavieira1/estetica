@@ -2,7 +2,7 @@ import { motion, Variants } from "framer-motion";
 import { CLIENT } from "@/config/client";
 import { FlowButton } from "@/components/ui/flow-button";
 import { BadgeGlass } from "@/components/ui/badge-glass";
-import aboutImage from "@/assets/about-salon.jpg";
+import aboutImage from "@/assets/about-salon.avif";
 
 export default function Sobre() {
   const container: Variants = {

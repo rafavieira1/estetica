@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { CLIENT } from "@/config/client";
 import { FlowButton } from "@/components/ui/flow-button";
 import { BadgeGlass } from "@/components/ui/badge-glass";
+import ctaImg from "@/assets/cta.avif";
 
 export default function SocialCTA() {
   return (
@@ -18,7 +19,7 @@ export default function SocialCTA() {
           {/* Background image visível apenas no mobile (hidden no lg+) */}
           <div className="absolute inset-0 lg:hidden">
             <img
-              src="https://images.unsplash.com/photo-1500917129638-ca7e13bc30f3?q=80&w=1170&auto=format&fit=crop"
+              src={ctaImg}
               alt=""
               className="w-full h-full object-cover"
             />
@@ -64,7 +65,7 @@ export default function SocialCTA() {
           {/* Coluna Direita: Imagem/Ilustração — visível apenas no desktop */}
           <div className="hidden lg:block relative w-full lg:w-[45%] h-[350px] sm:h-[450px] lg:h-auto overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1500917129638-ca7e13bc30f3?q=80&w=1170&auto=format&fit=crop"
+              src={ctaImg}
               alt="Aesthetic Texture"
               className="absolute inset-0 w-full h-full object-cover"
             />

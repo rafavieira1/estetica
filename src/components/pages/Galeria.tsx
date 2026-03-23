@@ -4,6 +4,26 @@ import { ChevronRight, ChevronLeft, MapPin, Instagram, X } from "lucide-react";
 import { CLIENT } from "@/config/client";
 import { BadgeGlass } from "@/components/ui/badge-glass";
 
+// Skin Glow
+import skin1 from "@/assets/skin1.avif";
+import skin2 from "@/assets/skin2.avif";
+import skin3 from "@/assets/skin3.avif";
+
+// Loiro Perfeito
+import loiro1 from "@/assets/loiro1.avif";
+import loiro2 from "@/assets/loiro2.avif";
+import loiro3 from "@/assets/loiro3.avif";
+
+// Make Glamour
+import make1 from "@/assets/make1.avif";
+import make2 from "@/assets/make2.avif";
+import make3 from "@/assets/make3.avif";
+
+// Spa Relax
+import spa1 from "@/assets/spa1.avif";
+import spa2 from "@/assets/spa2.avif";
+import spa3 from "@/assets/spa3.avif";
+
 type LayoutType = "center" | "right" | "left";
 
 interface GalleryItem {
@@ -19,44 +39,28 @@ const galleryItems: GalleryItem[] = [
     id: "skin",
     title: "Skin Glow",
     subtitle: "Hidratação Profunda",
-    images: [
-      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&q=80&w=800",
-    ],
+    images: [skin1, skin2, skin3],
     layout: "left",
   },
   {
     id: "loiro",
     title: "Loiro Perfeito",
     subtitle: "Mechas e Tonalização",
-    images: [
-      "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=80&w=800",
-    ],
+    images: [loiro1, loiro2, loiro3],
     layout: "right",
   },
   {
     id: "make",
     title: "Make Glamour",
     subtitle: "Maquiagem Social",
-    images: [
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80&w=800",
-    ],
+    images: [make1, make2, make3],
     layout: "left",
   },
   {
     id: "spa",
     title: "Spa Relax",
     subtitle: "Rituais Aromáticos",
-    images: [
-      "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=800",
-    ],
+    images: [spa1, spa2, spa3],
     layout: "right",
   },
 ];

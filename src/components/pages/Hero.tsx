@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { CLIENT } from "@/config/client";
-import heroImage from "@/assets/hero.png";
+import heroImage from "@/assets/hero.webp";
 
 export default function Hero() {
   return (

@@ -1,7 +1,6 @@
 import { motion, useInView, animate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import numerosImg from "@/assets/numeros.jpg";
-import backgroundVideo from "@/assets/bg-1.mp4";
+import numerosImg from "@/assets/numeros.avif";
 import { BadgeGlass } from "@/components/ui/badge-glass";
 
 function AnimatedCounter({ from, to, duration = 2, suffix = "" }: { from: number, to: number, duration?: number, suffix?: string }) {
